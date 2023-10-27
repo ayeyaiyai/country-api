@@ -1,4 +1,5 @@
 import React from 'react';
+import CountryCard from './CountryCard';
 
 function CountryList({ countries }) {
   // Sort the countries by common name (alphabetically)
@@ -9,11 +10,11 @@ function CountryList({ countries }) {
 
   return (
     <div className="country-list-container">
-      <ul className="country-list">
+      <div className="country-list">
         {sortedCountries.map((country) => (
-          <li key={country.cca3}>{country.name.common}</li>
+          <CountryCard key={country.cca3} country={country} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
