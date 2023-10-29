@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import '../styles/CountryList.css';
 import CountryCard from './CountryCard';
 
 function CountryList({ countries }) {
-  // Sort the countries by common name (alphabetically)
+  const [selectedRegion, setSelectedRegion] = useState(null);
+
   const sortedCountries = countries.slice().sort((a, b) => {
-    // Use the `localeCompare` method for string comparison
     return a.name.common.localeCompare(b.name.common);
   });
 
+  const filterCountriesByRegion = (region) => {
+    setSelectedRegion(region);
+  };
+
+  const clearFilter = () => {
+    setSelectedRegion(null);
+  };
+
+  const filteredCountries = selectedRegion
+    ? sortedCountries.filter((country) => country.region === selectedRegion)
+    : sortedCountries;
+
   return (
     <div className="country-list-container">
+      <div className='filter-selection'>
+        <div className='filter-label'>Filter by Region:</div>
+        <button className='filter-button' onClick={() => filterCountriesByRegion('Africa')}>Africa</button>
+        <button className='filter-button' onClick={() => filterCountriesByRegion('Americas')}>Americas</button>
+        <button className='filter-button' onClick={() => filterCountriesByRegion('Asia')}>Asia</button>
+        <button className='filter-button' onClick={() => filterCountriesByRegion('Europe')}>Europe</button>
+        <button className='filter-button' onClick={() => filterCountriesByRegion('Oceania')}>Oceania</button>
+        <button className='filter-button' onClick={clearFilter}>Clear Filter</button>
+      </div>
       <div className="country-list">
-        {sortedCountries.map((country) => (
+        {filteredCountries.map((country) => (
           <CountryCard key={country.cca3} country={country} />
         ))}
       </div>
