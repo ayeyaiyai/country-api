@@ -1,8 +1,10 @@
 .country-list-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.267);
+    align-items: center;
+    background-color: #fafafa;
+    width: 100%;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .filter-selection {
@@ -10,7 +12,10 @@
 }
 
 .country-list {
+    width: 90%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 0em));
+    gap: 100px 20px;
+    justify-content: space-between; /* Align the first card to the left and the last card to the right */
+    align-items: center;
 }
