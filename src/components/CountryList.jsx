@@ -3,11 +3,11 @@ import '../styles/CountryList.css';
 import CountryCard from './CountryCard';
 
 function CountryList({ countries }) {
-  const [selectedRegion, setSelectedRegion] = useState(null);
-
   const sortedCountries = countries.slice().sort((a, b) => {
     return a.name.common.localeCompare(b.name.common);
   });
+
+  const [selectedRegion, setSelectedRegion] = useState(null);
 
   const filterCountriesByRegion = (region) => {
     setSelectedRegion(region);
