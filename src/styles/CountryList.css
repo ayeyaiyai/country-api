@@ -9,6 +9,72 @@
 
 .filter-selection {
     display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 90%;
+}
+
+.filter-selection-left {
+    width: 38%;
+}
+
+.country-search {
+    border: none;
+    box-sizing: border-box;
+    height: 51px;
+    padding: 16px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.055);
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+}
+
+.filter-selection-right {
+    width: 15%;
+}
+
+.filter-dropdown {
+    position: relative;
+}
+
+.drop-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    height: 51px;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.055);
+}
+
+.down-arrow {
+    height: 14px;
+    width: 14px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
+.filter-option {
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .country-list {
@@ -16,6 +82,15 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 0em));
     gap: 100px 20px;
-    justify-content: space-between; /* Align the first card to the left and the last card to the right */
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 32px;
+}
+
+.filter-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.filter-dropdown:hover .filter-option:hover {
+    background-color: rgba(0, 0, 0, 0.075);
 }
