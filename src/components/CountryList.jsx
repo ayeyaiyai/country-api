@@ -9,6 +9,7 @@ function CountryList({ countries }) {
   });
 
   const [selectedRegion, setSelectedRegion] = useState(null);
+  const [searchInput, setSearchInput] = useState('');
 
   const filterCountriesByRegion = (region) => {
     setSelectedRegion(region);
@@ -18,9 +19,18 @@ function CountryList({ countries }) {
     setSelectedRegion(null);
   }
 
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   const filteredCountries = selectedRegion
     ? sortedCountries.filter((country) => country.region === selectedRegion)
     : sortedCountries;
+
+  const searchedCountries = filteredCountries.filter((country) => {
+    const countryName = country.name.common.toLowerCase();
+    return countryName.includes(searchInput.toLowerCase());
+  });
 
   return (
     <div className="country-list-container">
@@ -29,8 +39,9 @@ function CountryList({ countries }) {
           <input 
           className='country-search' 
           placeholder='Search for a country...'
-          >
-          </input>
+          value={searchInput}
+          onChange={handleSearchInputChange}
+          />
         </div>
         <div className='filter-selection-right'>
           <div className='filter-dropdown'>
@@ -50,7 +61,7 @@ function CountryList({ countries }) {
         </div>
       </div>
       <div className="country-list">
-        {filteredCountries.map((country) => (
+        {searchedCountries.map((country) => (
           <CountryCard key={country.cca3} country={country} />
         ))}
       </div>
