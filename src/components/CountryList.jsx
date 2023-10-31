@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/CountryList.css';
 import CountryCard from './CountryCard';
 import downArrow from '../images/chevron-down-outline.svg';
@@ -62,7 +63,9 @@ function CountryList({ countries }) {
       </div>
       <div className="country-list">
         {searchedCountries.map((country) => (
-          <CountryCard key={country.cca3} country={country} />
+          <Link key={country.cca3} to={`/country/${country.cca3}`}>
+            <CountryCard country={country} />
+          </Link>
         ))}
       </div>
     </div>
