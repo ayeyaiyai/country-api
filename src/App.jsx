@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import CountryList from './components/CountryList';
+import CountryDetail from './components/CountryDetail';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -15,9 +17,9 @@ function App() {
       } else {
         console.log('Failed to retrieve countries from the API.');
       }
-     } catch(error) {
-      console.error('An error occured while fetching countries:', error);
-     }
+    } catch (error) {
+      console.error('An error occurred while fetching countries:', error);
+    }
   };
 
   useEffect(() => {
@@ -29,11 +31,16 @@ function App() {
   }, [countries]);
 
   return (
-    <div className='container'>
-      <Header />
-      <CountryList countries={countries} />
-    </div>
-  )
+    <BrowserRouter>
+      <div className="container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<CountryList countries={countries} />} />
+          <Route path="/country/:cca3" element={<CountryDetail />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
