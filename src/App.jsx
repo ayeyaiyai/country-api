@@ -7,6 +7,11 @@ import CountryDetail from './components/CountryDetail';
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  }
 
   const fetchCountries = async () => {
     try {
@@ -33,9 +38,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container">
-        <Header />
+        <Header toggleDarkMode={toggleDarkMode}/>
         <Routes>
-          <Route path="/" element={<CountryList countries={countries} />} />
+          <Route path="/" element={<CountryList countries={countries} darkMode={darkMode} />} />
           <Route path="/country/:cca3" element={<CountryDetail />} />
         </Routes>
       </div>
