@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/CountryCard.css';
 
-function CountryCard({ country }) {
+function CountryCard({ country, darkMode }) {
 
     const formattedPopulation = country.population.toLocaleString();
     return (
         <div className="country-card">
             <div className='card-top'><img src={country.flags.svg} alt='country flag' className='flag-image'/></div>
-            <div className='card-bottom'>
+            <div className={`card-bottom ${darkMode ? 'dark-mode-card' : ''}`}>
                 <div className='country-name'>{country.name.common}</div>
                 <div className='card-info-container'>
                     <div className='country-population label'><span className='card-label'>Population:</span> {formattedPopulation}</div>
