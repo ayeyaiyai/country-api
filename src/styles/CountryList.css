@@ -94,3 +94,23 @@
 .filter-dropdown:hover .filter-option:hover {
     background-color: rgba(0, 0, 0, 0.075);
 }
+
+
+
+/* Dark Mode Styling */
+.dark-mode {
+    background-color: #202d36;
+}
+
+.dark-mode-input {
+    background-color: #2b3743;
+    color: #e9f2f6;
+}
+
+.dark-mode-input::placeholder {
+    color: #dae3ea;
+}
+
+.white-arrow {
+    filter: invert(97%) sepia(5%) saturate(826%) hue-rotate(172deg) brightness(101%) contrast(93%);
+}
