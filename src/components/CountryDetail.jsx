@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import '../styles/CountryDetail.css';
 import leftArrow from '../images/arrow-back-outline.svg';
 
-function CountryDetail() {
+function CountryDetail( {darkMode} ) {
   const { cca3 } = useParams();
   const [countryData, setCountryData] = useState(null);
 
@@ -28,11 +28,11 @@ function CountryDetail() {
   return (
     <div>
         {countryData ? (
-            <div className='country-detail-container'>
+            <div className={`country-detail-container ${darkMode ? 'dark-mode-input' : ''}`}>
                 <div className='country-detail-body'>
-                    <Link to="/" className='back-link'>
+                    <Link to="/" className={`back-link ${darkMode ? 'dark-mode-link' : ''}`}>
                         <div className='left-arrow'>
-                            <img src={leftArrow} alt="left arrow" className='left-arrow-image' />
+                            <img src={leftArrow} alt="left arrow" className={`left-arrow-image ${darkMode ? 'white-arrow' : ''}`} />
                         </div> Back
                     </Link>
                     <div className='country-information-body'>
@@ -78,7 +78,7 @@ function CountryDetail() {
                                         <Link
                                             key={borderCountryCode}
                                             to={`/country/${borderCountryCode}`} // Create the link based on borderCountryCode
-                                            className='bordering-country'
+                                            className={`bordering-country ${darkMode ? 'dark-mode-link' : ''}`}
                                          >
                                             {borderCountryCode}
                                         </Link>
