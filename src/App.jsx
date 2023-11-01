@@ -41,7 +41,7 @@ function App() {
         <Header toggleDarkMode={toggleDarkMode}/>
         <Routes>
           <Route path="/" element={<CountryList countries={countries} darkMode={darkMode} />} />
-          <Route path="/country/:cca3" element={<CountryDetail />} />
+          <Route path="/country/:cca3" element={<CountryDetail darkMode={darkMode} />} />
         </Routes>
       </div>
     </BrowserRouter>
