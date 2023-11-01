@@ -72,6 +72,17 @@ function CountryDetail() {
                             </div>
                             <div className='border-countries'>
                                 <div className='country-details-title'>Border Countries: </div>
+                                <div className='bordering-countries'>
+                                    {countryData && countryData[0].borders ? (
+                                    countryData[0].borders.map((borderCountryCode) => (
+                                        <div key={borderCountryCode} className='bordering-country'>
+                                            {borderCountryCode}
+                                        </div>
+                                    ))
+                                    ) : (
+                                    <div className='bordering-country'>None Found</div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
