@@ -75,12 +75,16 @@ function CountryDetail() {
                                 <div className='bordering-countries'>
                                     {countryData && countryData[0].borders ? (
                                     countryData[0].borders.map((borderCountryCode) => (
-                                        <div key={borderCountryCode} className='bordering-country'>
+                                        <Link
+                                            key={borderCountryCode}
+                                            to={`/country/${borderCountryCode}`} // Create the link based on borderCountryCode
+                                            className='bordering-country'
+                                         >
                                             {borderCountryCode}
-                                        </div>
+                                        </Link>
                                     ))
                                     ) : (
-                                    <div className='bordering-country'>None Found</div>
+                                    <div className='no-bordering-country'>None found</div>
                                     )}
                                 </div>
                             </div>
