@@ -93,7 +93,7 @@ function CountryDetail( {darkMode} ) {
                 </div>
             </div>
         ) : (
-            <div className='loading-container'>
+            <div className={`loading-container ${darkMode ? 'dark-mode-input' : ''}`}>
                 <div className='loading-message'>Fetching Country Info...</div>
             </div>
         )}
