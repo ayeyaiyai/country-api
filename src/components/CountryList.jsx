@@ -49,7 +49,7 @@ function CountryList({ countries, darkMode }) {
           <div className='filter-dropdown'>
             <div className={`drop-div ${darkMode ? 'dark-mode-input' : ''}`}>
               <div className='drop-left'>Filter by Region</div>
-              <img src={downArrow} alt='down arrow' className={`down-arrow ${darkMode ? 'white-arrow' : ''}`}/>
+              <img src={downArrow} alt='down arrow' className={`down-arrow ${darkMode ? 'white-icon' : ''}`}/>
             </div>
             <div className={`dropdown-content ${darkMode ? 'dark-mode-input' : ''}`}>
               <div className='filter-option' onClick={(() => filterCountriesByRegion('Africa'))}>Africa</div>
