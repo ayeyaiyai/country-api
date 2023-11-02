@@ -32,7 +32,7 @@ function CountryDetail( {darkMode} ) {
                 <div className='country-detail-body'>
                     <Link to="/" className={`back-link ${darkMode ? 'dark-mode-link' : ''}`}>
                         <div className='left-arrow'>
-                            <img src={leftArrow} alt="left arrow" className={`left-arrow-image ${darkMode ? 'white-arrow' : ''}`} />
+                            <img src={leftArrow} alt="left arrow" className={`left-arrow-image ${darkMode ? 'white-icon' : ''}`} />
                         </div> Back
                     </Link>
                     <div className='country-information-body'>
