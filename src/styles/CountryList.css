@@ -4,6 +4,7 @@
     align-items: center;
     background-color: #fafafa;
     width: 100%;
+    min-width: 375px;
     font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -47,6 +48,7 @@
     font-size: 14px;
     font-weight: 600;
     width: 100%;
+    min-width: 150px;
     height: 51px;
     border-radius: 4px;
     background-color: white;
@@ -63,6 +65,7 @@
     display: none;
     position: absolute;
     width: 100%;
+    min-width: 150px;
     z-index: 1;
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -96,7 +99,6 @@
 }
 
 
-
 /* Dark Mode Styling */
 .dark-mode {
     background-color: #202d36;
@@ -113,4 +115,22 @@
 
 .white-icon {
     filter: invert(97%) sepia(5%) saturate(826%) hue-rotate(172deg) brightness(101%) contrast(93%);
+}
+
+/* Mobile Styling */
+@media (max-width: 900px) {
+    .filter-selection {
+        flex-direction: column;
+    }
+
+    .filter-selection-left {
+        width: 100%;
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .country-list {
+        justify-content: center;
+    }
 }
